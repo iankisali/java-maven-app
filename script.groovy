@@ -3,6 +3,11 @@ def test() {
     echo "testing the application .."
 }
 
+def buildJar() {
+    echo "packaging the application into jar file..."
+    sh 'mvn package'
+}
+
 def buildImage() {
     echo "building docker image.."
     withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
